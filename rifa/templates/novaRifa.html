@@ -1,0 +1,19 @@
+<div class="main-content main-content-detail container">
+    <section class="form-control" style="margin-left: 5em">
+        <form method="POST" enctype="multipart/form-data">
+            <h1 style="text-align: center;">New Recipe</h1>
+            <div class="row">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                    <div class="col-12 col-lg-12" style="margin-bottom: 20px;">
+                        <label for="{{ field.id_for_label }}" style="color: #000000; font-size: 20px; margin-bottom: 10px;">{{field.label}}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success col-12">Criar Rifa</button>
+            </div>
+        </form>
+    </section>
+</div>
