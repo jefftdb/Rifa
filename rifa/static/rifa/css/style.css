@@ -13,15 +13,17 @@
 }
 
 /* --------------------------- CSS -------------------------- */
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fffff0;
+  background-color: #90EE90;
 }
 
-.container {
+
+.conteudo {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
@@ -72,23 +74,27 @@ body {
   min-height: 35px;
   border-radius: 100%;
   background-color: #90EE90;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;  
+  
 }
 .rifa .numbers .number:hover {
   border: 2px solid #228b22;
   transform: scale(1.2);
   background-color:#90EE90;
-  color: #228b22 !important;
+  color: #228b22 !important;  
+  
 }
 
 
 .rifa .numbers .number-reserved {  
-  background-color: #FFDAB9 !important;
+  background-color: #FFDAB9 !important;  
+ 
   
 }
 .rifa .numbers .number-reserved:hover {
   border: 2px solid #FF4500 !important; 
-  color: #FF4500 !important;
+  color: #FF4500 !important;  
+  
 }
 
 .break-word {
