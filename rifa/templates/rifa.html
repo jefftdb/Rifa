@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <title>CodePen - CSS - Winter Animation Calendar</title>
-  <link rel="stylesheet" href="{% static 'rifa/css/style.css' %}">
-
-</head>
+{% extends 'template/base_template.html' %}
 <body>
+  {% block content%}  
   <!-- partial:index.partial.html -->
-  <div class="container">    
+  <div class="conteudo">    
     <div class="rifa">    
       <div class="header">        
         {% if rifa %}
@@ -22,9 +15,9 @@
       <div class="numbers">
         {{rifa.make_rifa | safe }}
       </div>
-    </div>
+    </div>    
   </div>
 <!-- partial -->
-  
+{% endblock content%} 
 </body>
 </html>

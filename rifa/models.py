@@ -26,7 +26,7 @@ class Rifa(models.Model):
             if not numero.status:
                 rifa.append(f'<p class="number number-reserved number-name">{numero}</p>')
             else:
-                rifa.append(f'<a href="/rifa/edit_rifa/{self.id}/{numero.id}"><p class="number number-name">{numero}</p></a>')
+                rifa.append(f'<a style = "text-decoration: none;" href="/rifa/edit_rifa/{self.id}/{numero.id}"><p class="number number-name">{numero}</p></a>')
 
         return ''.join(rifa)
     

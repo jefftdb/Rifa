@@ -1,14 +1,19 @@
-<div class="main-content main-content-detail container">
-    <section class="form-control" style="margin-left: 5em">
+{% extends 'template/base_template.html' %}
+
+  {% block content%}
+<div class="conteudo col-8">
+    <section class="form-control">
         <form method="POST" enctype="multipart/form-data">
-            <h1 style="text-align: center;">New Recipe</h1>
+            <h1 style="text-align: center;">Criar Rifa</h1>
             <div class="row">
                 {% csrf_token %}
                 {% for field in form.visible_fields %}
-                    <div class="col-12 col-lg-12" style="margin-bottom: 20px;">
-                        <label for="{{ field.id_for_label }}" style="color: #000000; font-size: 20px; margin-bottom: 10px;">{{field.label}}</label>
+                <div class="row mb-3">                    
+                    <label class="col-sm-2 col-form-label" for="{{ field.id_for_label }}" style="color: #000000; font-size: 20px; margin-bottom: 10px;">{{field.label}}</label>
+                    <div class="col-sm-10">
                         {{ field }}
-                    </div>
+                    </div> 
+                </div>
                 {% endfor %}
             </div>
             <div>
@@ -17,3 +22,4 @@
         </form>
     </section>
 </div>
+{% endblock content%} 
