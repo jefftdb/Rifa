@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:wght@300;400&display=swap");
+/* --------------------------- Colors ------------------------- */
+/* ---------------------- Width & Heights --------------------- */
+/* --------------------------- Mixins -------------------------- */
+/* ------------------------ Functions ------------------------ */
+/* ------------------------ Reset CSS ----------------------- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------------- CSS -------------------------- */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fffff0;
+}
+
+.container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.rifa {
+  padding: 10px;
+  position: relative;  
+  background-color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  max-width: 550px;
+}
+.rifa .header {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rifa .header_title {
+  font-family: "Kaushan Script", cursive;
+  font-size: 28px;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #0061a8;
+}
+.rifa .header_subtitle {
+  font-size: 14px;
+  color: #919191;
+  text-align: center;
+}
+
+.rifa .number-name {
+  color: #000000;
+}
+.rifa .numbers {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(10, 35px);
+  grid-column-gap: 18px;
+  grid-row-gap: 5px;
+}
+.rifa .numbers .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 35px;
+  border-radius: 100%;
+  background-color: #90EE90;
+  transition: all 0.4s ease-in-out;
+}
+.rifa .numbers .number:hover {
+  border: 2px solid #228b22;
+  transform: scale(1.2);
+  background-color:#90EE90;
+  color: #228b22 !important;
+}
+
+
+.rifa .numbers .number-reserved {  
+  background-color: #FFDAB9 !important;
+  
+}
+.rifa .numbers .number-reserved:hover {
+  border: 2px solid #FF4500 !important; 
+  color: #FF4500 !important;
+}
+
+.break-word {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 10px;
+  margin: 10px;
+}
+/* ----------------------- Animations ----------------------- */
+@keyframes moveStars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-1560px) translateX(-1560px);
+  }
+}
+@keyframes moveCloud {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(350px);
+  }
+}
