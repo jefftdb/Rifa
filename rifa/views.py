@@ -13,7 +13,7 @@ def rifa(request,id):
    
     rifa = Rifa.objects.get(id = id)
     
-    return render(request, 'template/index.html', context={
+    return render(request, 'rifa.html', context={
         'rifa': rifa 
     })
 
