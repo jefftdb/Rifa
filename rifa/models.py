@@ -1,7 +1,32 @@
 from typing import Any
 from django.db import models
 
+class Endereco(models.Model):    
+    rua = models.CharField(max_length=255)
+    numero = models.CharField(max_length=10)
+    complemento = models.CharField(max_length=255, blank=True, null=True)
+    bairro = models.CharField(max_length=255)
+    cidade = models.CharField(max_length=255)
+    estado = models.CharField(max_length=255)
+    cep = models.CharField(max_length=10)
+    pais = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f'{self.rua}, {self.numero}, {self.complemento}, {self.bairro}, {self.cidade}, {self.estado}, {self.cep}, {self.pais}'
+
+    def formatar_endereco(self):
+        partes = [
+            f'Rua: {self.rua}',
+            f'Número: {self.numero}',
+            f'Complemento: {self.complemento}' if self.complemento else '',
+            f'Bairro: {self.bairro}',
+            f'Cidade: {self.cidade}',
+            f'Estado: {self.estado}',
+            f'CEP: {self.cep}',
+            f'País: {self.pais}'
+        ]
+        return ', '.join(filter(None, partes))
+    
 class Rifa(models.Model):
     id = models.AutoField(primary_key=True,auto_created=True)
     user_id = models.IntegerField(default=0)
@@ -54,3 +79,12 @@ class Number(models.Model):
 
     def __str__(self):
         return str(self.number)       
+
+class User_common(models.Model):
+    id = models.AutoField(primary_key=True)
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=100)
+    password=models.CharField(max_length=255)
+    email=models.CharField(max_length=50)
+    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE, related_name='Endereco_usuario')
+

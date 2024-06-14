@@ -42,7 +42,7 @@ def edit_rifa(request,rifa_id,id):
    return redirect('rifa:rifa', id=rifa_id)
 
 
-def delete_recipe(request):
+def delete_rifa(request):
     pass
 
 
