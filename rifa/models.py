@@ -26,15 +26,18 @@ class Rifa(models.Model):
             if not numero.status:
                 rifa.append(f'<p class="number number-reserved number-name">{numero}</p>')
             else:
-                rifa.append(f'<a style = "text-decoration: none;" href="/rifa/edit_rifa/{self.id}/{numero.id}"><p class="number number-name">{numero}</p></a>')
-
+                rifa.append(f'''
+                <a style="text-decoration: none;" href="#" data-rifa-id="{self.id}" data-numero-id="{numero.id}" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <p class="number number-name">{numero}</p>
+                </a>
+            ''')
         return ''.join(rifa)
     
     def make_number(self):
         # Garantir que a instância de Rifa está salva antes de criar os números
         if not self.pk:
             raise ValueError("A instância de Rifa deve ser salva antes de criar números.")
-        for numero in range(1, self.quantity):  # +1 para incluir o número `quantity`
+        for numero in range(1, self.quantity):  
             number_instance = Number(rifa_id=self, number=numero)  # Usar a instância do objeto
             number_instance.save()
 
