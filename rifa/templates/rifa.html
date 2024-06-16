@@ -1,4 +1,5 @@
 {% extends 'template/base_template.html' %}
+{% load static %}
 <body>
   {% block content%}  
   <!-- partial:index.partial.html -->
@@ -7,14 +8,42 @@
       <div class="header">        
         {% if rifa %}
         <h1 class="header_title">{{ rifa.title }}</h1>
-        <p class="header_subtitle break-word">{{ rifa.description }}</p>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <h1>Valor: R${{rifa.value |floatformat:2 }}</h1>
+            </div>
+            <div class="col">
+              <h3>{{rifa.award}}</h3>
+            </div>
+          </div>
+        </div>
         {% else %}
           <p>No Rifa data available.</p>
         {% endif %}
       </div>
-      <div class="numbers">
-        {{rifa.make_rifa | safe }}
+      <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <div class="rifa">
+                    <div class="numbers"> 
+                      {{rifa.make_rifa | safe }}
+                    </div>
+                  </div>
+              </div>
+          </div>
       </div>
+
+
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <img class="img-fluid imagem_premio" src="{% static 'rifa/img/minha_img.jpg' %}">
+          </div>
+          <div class="col">
+            <h3>sorteio dia: {{rifa.date_finish | date:"d/m/Y"}}</h3>
+          </div>
+        </div>
     </div>    
   </div>
   

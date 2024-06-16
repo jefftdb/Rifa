@@ -35,7 +35,6 @@ body {
   position: relative;  
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
-  max-width: 550px;
 }
 .rifa .header {
   padding-top: 5px;
@@ -63,7 +62,7 @@ body {
 .rifa .numbers {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(10, 35px);
+  grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
   grid-column-gap: 18px;
   grid-row-gap: 5px;
 }
@@ -75,34 +74,36 @@ body {
   border-radius: 100%;
   background-color: #90EE90;
   transition: all 0.4s ease-in-out;  
-  
 }
 .rifa .numbers .number:hover {
   border: 2px solid #228b22;
   transform: scale(1.2);
   background-color:#90EE90;
   color: #228b22 !important;  
-  
 }
-
-
 .rifa .numbers .number-reserved {  
   background-color: #FFDAB9 !important;  
- 
-  
 }
 .rifa .numbers .number-reserved:hover {
   border: 2px solid #FF4500 !important; 
   color: #FF4500 !important;  
-  
 }
-
 .break-word {
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 10px;
   margin: 10px;
 }
+.imagem_premio{
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid black;
+  
+}
+
+
 /* ----------------------- Animations ----------------------- */
 @keyframes moveStars {
   from {
@@ -120,3 +121,4 @@ body {
     transform: translateX(350px);
   }
 }
+
