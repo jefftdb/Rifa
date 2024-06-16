@@ -26,7 +26,18 @@ class RifaForms(forms.ModelForm):
             'title':      forms.TextInput(attrs={'class': 'form-control'}),
             'description':forms.TextInput(attrs={'class': 'form-control'}),
             'award':      forms.TextInput(attrs={'class': 'form-control'}),
-            'date_start': forms.DateInput(attrs={'class': 'form-control'}),
-            'date_finish':forms.DateInput(attrs={'class': 'form-control'}),
+            'date_start': forms.DateInput(attrs={'class': 'form-control','type': 'date'}),
+            'date_finish':forms.DateInput(attrs={'class': 'form-control','type': 'date'}),
             
+        }
+
+        labels = {
+            'quantity': 'Quantidade:',
+            'value': 'Valor:',
+            'pix_key': 'Chave PIX:',
+            'title': 'Título:',
+            'description': 'Descrição:',
+            'award': 'Prêmio:',
+            'date_start': 'Data de Início:',
+            'date_finish': 'Sorteio:',
         }
