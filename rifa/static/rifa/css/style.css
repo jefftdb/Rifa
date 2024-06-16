@@ -51,9 +51,12 @@ body {
   color: #0061a8;
 }
 .rifa .header_subtitle {
-  font-size: 14px;
-  color: #919191;
+  font-weight: bolder;
+  color: green;
   text-align: center;
+  -ms-transform: rotate(-25deg); /* IE 9 */
+  -webkit-transform: rotate(-25deg); /* Safari */
+  transform: rotate(-25deg); /* Standard syntax */
 }
 
 .rifa .number-name {
@@ -62,8 +65,8 @@ body {
 .rifa .numbers {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
-  grid-column-gap: 18px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 10px;
   grid-row-gap: 5px;
 }
 .rifa .numbers .number {
@@ -98,7 +101,7 @@ body {
   max-width: 250px;
   max-height: 250px;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: 100%;
   border: 3px solid black;
   
 }

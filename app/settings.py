@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rifa',
+    'pagamento',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'rifa/templates',
+            BASE_DIR / 'pagamento/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -122,7 +124,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'rifa/static/')
+    os.path.join(BASE_DIR,'rifa/static/'),
+    os.path.join(BASE_DIR,'pagamento/static/')
 ]
 
 
