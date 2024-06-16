@@ -1,0 +1,27 @@
+{% extends 'base_template.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}pagamento{% endblock title%}</title>
+</head>
+<body>
+    {% block content%}
+    <form class="" method="post" name="FormCard" id="FormCard" action="pag">        
+        <div class="container">
+            <input type="text" name="publicKey" id="publicKey" value="{{publicKey}}">
+            <input type="text" name="encryptedCard" id="encryptedCard" value="">
+            {% csrf_token %}
+            <input type="text" class="form-control" name="cardNumber" id="cardNumber" maxlength="16" placeholder="Numero do Cartão">
+            <input class="form-control" type="text" name="cardHolder" id="cardHolder" placeholder="Nome do Cartão">
+            <input class="form-control" type="text" name="cardMonth" id="cardMonth" maxlength="2" placeholder="Mês de vencimento">
+            <input class="form-control" type="text" name="cardYear" id="cardYear" maxlength="4" placeholder="Ano Vencimento">
+            <input class="form-control" type="text" name="cardCVV" id="cardCVV" maxlength="4" placeholder="CVV do Cartão">
+            <input type="submit" class="btn btn-primary" value="Pagar">
+        </div>
+    </form>
+    <script src="https://assets.pagseguro.com.br/checkout-sdk-js/rc/dist/browser/pagseguro.min.js"></script>   
+    {% endblock content%}    
+</body>
+</html>
