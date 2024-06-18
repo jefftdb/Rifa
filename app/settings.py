@@ -60,6 +60,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'rifa/templates',
             BASE_DIR / 'pagamento/templates',
+            BASE_DIR 
         ],
         'APP_DIRS': True,
         'OPTIONS': {
