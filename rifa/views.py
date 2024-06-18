@@ -7,7 +7,7 @@ from .forms import RifaForms
 # Create your views here.
 def home(request): 
     
-    return redirect("rifa:nova_rifa")
+    return render(request,'index.html')
 
 def rifa(request,id):
    
