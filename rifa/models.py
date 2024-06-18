@@ -1,5 +1,9 @@
 from typing import Any
 from django.db import models
+from datetime import datetime
+import os
+
+
 
 class Endereco(models.Model):    
     rua = models.CharField(max_length=255)
@@ -32,17 +36,27 @@ class Rifa(models.Model):
     user_id = models.IntegerField(default=0)
     quantity = models.IntegerField()
     value = models.FloatField()
-    pix_key = models.CharField(max_length=255)
     title = models.CharField(max_length=35)
     description = models.CharField(max_length=255)
     award = models.CharField(max_length=255)
-    date_start = models.DateTimeField()
+    date_start = models.DateTimeField(null = True)
     date_finish = models.DateTimeField()
     active = models.BooleanField(default=False)
 
+    def criaNome(instance, filename):
+        t = datetime.now()
+        base, ext = os.path.splitext(filename)
+        nome = f"{'Imagem'}-{t.strftime('%d-%m-%Y-%H%M%S%f')}{ext}"
+        return os.path.join('rifa/static/rifa/img', nome)
+
+    cover = models.ImageField(upload_to=criaNome)
+    
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)  # Chama o __init__ da classe base
         self.quantity = 101  # Definindo valor padrão para quantity
+
+    
 
     def make_rifa(self):
         rifa = []

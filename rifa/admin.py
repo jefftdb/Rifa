@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Rifa,Number
 
 class RifaAdmin(admin.ModelAdmin):
-       list_display = ("id","quantity","value","pix_key","title","description","award","date_start","date_finish","active")
+       list_display = ("id","quantity","value","title","description","award","date_start","date_finish","active","cover")
        search_fields = ("id", "title","description","award")
 
        
