@@ -24,39 +24,35 @@ body {
 
 
 .conteudo {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
 
 
 .rifa {
-  padding: 10px;
-  position: relative;  
-  background-color: #ffffff;
-  font-family: "Open Sans", sans-serif;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
 }
 .rifa .header {
-  padding-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.rifa .header_title {
-  font-family: "Kaushan Script", cursive;
-  font-size: 28px;
-  letter-spacing: 2px;
-  line-height: 1;
-  color: #0061a8;
+.rifa .header_title {  
+  font-size: 1.5em;
+  color: #555;
 }
 .rifa .header_subtitle {
   font-weight: bolder;
-  color: green;
+  color: #555;
   text-align: center;
-  -ms-transform: rotate(-25deg); /* IE 9 */
-  -webkit-transform: rotate(-25deg); /* Safari */
-  transform: rotate(-25deg); /* Standard syntax */
+  -ms-transform: rotate(-5deg); /* IE 9 */
+  -webkit-transform: rotate(-5deg); /* Safari */
+  transform: rotate(-5deg); /* Standard syntax */
 }
 
 .rifa .number-name {
@@ -98,14 +94,48 @@ body {
   margin: 10px;
 }
 .imagem_premio{
-  max-width: 250px;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 100%;
-  border: 3px solid black;
+  margin-bottom: 20px;
   
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .info-box {
+      flex-direction: column;
+  }
+
+  .info-item {
+      margin-bottom: 10px;
+  }
+
+  .row.align-items-center {
+      flex-direction: column;
+  }
+}
+
+.info-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.info-item {
+  text-align: center;
+  flex: 1;
+}
 
 /* ----------------------- Animations ----------------------- */
 @keyframes moveStars {
@@ -125,3 +155,20 @@ body {
   }
 }
 
+.payment-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  text-align: center;
+}
+.qr-code {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+.copy-btn {
+  margin-top: 10px;
+}

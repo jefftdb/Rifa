@@ -3,51 +3,50 @@
 <body>
   {% block content%}  
   <!-- partial:index.partial.html -->
-  <div class="conteudo">    
-    <div class="rifa">    
-      <div class="container mt-3">
-        <div class="header">
-            {% if rifa %}
-                <h1 class="header_title">{{ rifa.title }}</h1>
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col-md-6">
-                          <h3 class="header_subtitle">R${{ rifa.value | floatformat:2 }}</h3>
+  <div class="conteudo">
+    <div class="rifa">
+        <div class="container mt-3">
+            <div class="header">
+                {% if rifa %}
+                    <h1 class="header_title">{{ rifa.title }}</h1>
+                    <div class="info-box">
+                        <div class="info-item">
+                            <h3 class="header_subtitle">Apenas: R${{ rifa.value | floatformat:2 }}</h3>
                         </div>
-                        <div class="col-md-6">
-                          <h3 class="header_subtitle">sorteio dia: {{rifa.date_finish | date:"d/m/Y"}}</h3>                            
+                        <div class="info-item">
+                            <h3 class="header_subtitle">Sorteio: {{ rifa.date_finish | date:"d/m/Y" }}</h3>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>No Rifa data available.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="rifa-numbers">
+                        <div class="numbers">
+                            {{ rifa.make_rifa | safe }}
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <p>No Rifa data available.</p>
-            {% endif %}
+            </div>
+        </div>
+        <div class="container text-center mt-3">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img class="img-fluid imagem_premio" src="{% static 'rifa/img/minha_img.jpg' %}">
+                </div>
+                <div class="col-md-6">
+                    <h3>{{ rifa.award }}</h3>
+                    <h3>Anunciante</h3>
+                </div>
+            </div>
         </div>
     </div>
-      <div class="container mt-3">
-        <div class="row">
-            <div class="col-12">
-                <div class="rifa">
-                    <div class="numbers"> 
-                      {{rifa.make_rifa | safe }}
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <img class="img-fluid imagem_premio" src="{% static 'rifa/img/minha_img.jpg' %}">
-          </div>
-          <div class="col">
-            <h3>{{ rifa.award }}</h3>
-          </div>
-        </div>
-      </div>    
-    </div>
-  </div>
+</div>
+
   
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -57,17 +56,30 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Titulo: <span id="modalRifaTitle"></span></p>
-          <p>QR Code: <img id="modalQRCode" src="" alt="QR Code"></p>
-          <p>Texto do PIX: <span id="modalTextoPix"></span></p>
-          <p>ID do Pedido: <span id="modalOrderId"></span></p>
-          <p>Nome do Cliente: <span id="modalCustomerName"></span></p>
-          <p>Email do Cliente: <span id="modalCustomerEmail"></span></p>
-          <p>CPF do Cliente: <span id="modalCustomerTaxId"></span></p>
-          <p>Telefone do Cliente: <span id="modalCustomerPhone"></span></p>
-          <p>Nome do Item: <span id="modalItemName"></span></p>
-          <p>Quantidade: <span id="modalItemQuantity"></span></p>
-          <p>Valor Unitário: <span id="modalItemAmount"></span></p>
+          <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
+          <!-- Conteúdo do Modal -->
+          <div id="modalContent" style="display:none;">             
+            <div class="container">
+              <div class="payment-container">
+                  <h2>Pagamento com Pix</h2>
+                  <p>Utilize o QR Code abaixo para realizar o pagamento.</p>
+                  <img class="img-fluid qr-code" id="modalQRCode" src="" alt="QR Code"></p> 
+                  <p>Ou copie o código Pix abaixo:</p>
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="modalTextoPix" readonly>
+                      <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" type="button" id="copyButton">Copiar</button>
+                      </div>
+                  </div>
+                  <div id="copyAlert" class="alert alert-success" style="display:none;" role="alert">
+                      Código Pix copiado!
+                  </div>
+              </div>
+          </div>
+        </div>
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
