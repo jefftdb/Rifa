@@ -72,18 +72,60 @@ class TelefoneForm(forms.ModelForm):
         }
 
 class UsuarioEnderecoForm(forms.ModelForm):
-    rua = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    numero = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    complemento = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    bairro = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    cidade = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    estado = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    cep = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    pais = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-
+    # Adding fields from Endereco to the combined form
+    rua = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Rua:"
+    )
+    numero = forms.CharField(
+        max_length=10,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Número:"
+    )
+    complemento = forms.CharField(
+        max_length=255,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Complemento:"
+    )
+    bairro = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Bairro:"
+    )
+    cidade = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Cidade:"
+    )
+    estado = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Estado:"
+    )
+    cep = forms.CharField(
+        max_length=10,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="CEP:"
+    )
+    pais = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="País:"
+    )
+    
     # Adding fields from Telefone to the combined form
-    ddd = forms.CharField(max_length=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    telefone = forms.CharField(max_length=9, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    telefone_ddd = forms.CharField(
+        max_length=2,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="DDD:"
+    )
+    telefone_numero = forms.CharField(
+        max_length=9,
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        label="Telefone:"
+    )
     
     class Meta:
         model = Usuario
