@@ -145,29 +145,29 @@ def pagar_com_pix(request,rifa_id,num_id):
         },
         "items": [
             {
-            "name": f'Rifa: {rifa.title}, numero:{numero}',
+            "name": f'numero:{numero} da Rifa: {rifa.title}',
             "quantity": 1,
-            "unit_amount": 500
+            "unit_amount": rifa.value
             }
         ],
         "qr_codes": [
             {
             "amount": {
-                "value": 500
+                "value": rifa.value
             },
             "expiration_date": data_expiracao.isoformat(),
             }
         ],
         "shipping": {
             "address": {
-            "street": "Avenida Brigadeiro Faria Lima",
-            "number": "1384",
-            "complement": "apto 12",
-            "locality": "Pinheiros",
-            "city": "São Paulo",
-            "region_code": "SP",
+            "street": "Júlio Lopes",
+            "number": "225",
+            "complement": "casa 1",
+            "locality": "Santa Rita",
+            "city": "Mendes",
+            "region_code": "RJ",
             "country": "BRA",
-            "postal_code": "01452002"
+            "postal_code": "26700-000"
             }
         },
         "notification_urls": [

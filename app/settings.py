@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rifa',
     'pagamento',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'rifa/templates',
             BASE_DIR / 'pagamento/templates',
+            BASE_DIR / 'usuario/templates',
             BASE_DIR 
         ],
         'APP_DIRS': True,
