@@ -1,10 +1,9 @@
 {% extends 'templates/base_template.html' %}
 
-  {% block content%}
-<div class="conteudo col-8">
-    <section class="form-control">
-        <form method="POST" enctype="multipart/form-data">
-            <h1 style="text-align: center;">Criar Rifa</h1>
+  {% block content%}  
+    <section class="form-control" style="margin-top: 10px;">
+        <form method="POST" enctype="multipart/form-data" >
+            <h1 class="header_title" style="text-align: center;">Nova Rifa</h1>
             <div class="row">
                 {% csrf_token %}
                 {% for field in form.visible_fields %}
@@ -27,5 +26,6 @@
             </div>
         </form>
     </section>
-</div>
+
+
 {% endblock content%} 

@@ -80,3 +80,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function share() {
+    if (navigator.share !== undefined) {
+        navigator.share({
+            title: document.title, 
+            text: 'Venha conferir essa rifa.',
+            url: window.location.href
+        })
+        .then(() => console.log('Compartilhou com sucesso'))
+        .catch((error) => console.error('Erro ao compartilhar', error)); // Corrigido para capturar e logar o erro
+    } else {
+        console.log('API de compartilhamento não suportada neste navegador.');
+    }
+}
