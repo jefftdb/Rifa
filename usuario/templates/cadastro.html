@@ -3,7 +3,7 @@
   <div class="conteudo container">
     <section class="form-control" style="margin-top: 10px;">
       <form method="POST" enctype="multipart/form-data" >
-          <h1 class="header_title" style="text-align: center;">Nova Rifa</h1>
+          <h1 class="header_title" style="text-align: center;">Cadastrar</h1>
           <div class="row">
               {% csrf_token %}
               {% for field in form.visible_fields %}
@@ -17,7 +17,7 @@
               {% endfor %}
           </div>
           <div>
-              <button type="submit" class="btn btn-success col-12">Criar Rifa</button>
+              <button type="submit" class="btn btn-success col-12">Enviar</button>
           </div>
       </form>
   </div>

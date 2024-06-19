@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from usuario.models import Usuario,Endereco,Telefone
 from usuario.forms import UsuarioEnderecoForm
+from django.contrib.auth.hashers import make_password
 
 def cadastro(request):
     if request.method == 'POST':
@@ -24,7 +25,7 @@ def cadastro(request):
             usuario = Usuario(
                 first_name=form.cleaned_data['first_name'],
                 last_name=form.cleaned_data['last_name'],
-                password=form.cleaned_data['password'],
+                password=make_password(form.cleaned_data['password']),
                 email=form.cleaned_data['email'],
                 cpf=form.cleaned_data['cpf'],
                 cover=form.cleaned_data['cover'],
