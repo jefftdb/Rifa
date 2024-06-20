@@ -1,5 +1,5 @@
 from django.contrib import admin
-from usuario.models import Endereco,Usuario,Telefone
+from usuario.models import Endereco,User,Telefone
 
 class EnderecoAdmin(admin.ModelAdmin):
        list_display =( "id", "rua","numero" ,"complemento" ,"bairro","cidade","estado","cep","pais")
@@ -14,5 +14,5 @@ class TelefoneAdmin(admin.ModelAdmin):
        search_fields = ( "id","telefone")
 
 admin.site.register(Endereco,EnderecoAdmin)
-admin.site.register(Usuario,UsuarioAdmin)
+admin.site.register(User,UsuarioAdmin)
 admin.site.register(Telefone,TelefoneAdmin)
