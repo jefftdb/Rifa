@@ -28,7 +28,7 @@ def cadastro(request):
                 password=make_password(form.cleaned_data['password']),
                 email=form.cleaned_data['email'],
                 cpf=form.cleaned_data['cpf'],
-                cover=form.cleaned_data['cover'],
+                cover=form.cleaned_data.get('cover'),
                 endereco=endereco  # Associate the saved Endereco
             )
             usuario.save()
@@ -37,13 +37,12 @@ def cadastro(request):
             usuario.endereco = endereco
             usuario.save()
 
-            telefone = Telefone(
-                pais = form.cleaned_data['pais'],
+            telefone = Telefone(               
                 ddd = form.cleaned_data['ddd'],
                 telefone = form.cleaned_data['telefone'],
-                usuario_id = usuario
+                usuario = usuario
             )
-            telefone.usuario_id = usuario
+            telefone.usuario = usuario
             telefone.save()
 
             return redirect('rifa:nova_rifa')  # Substitua 'success_url' pela URL desejada após o envio do formulário

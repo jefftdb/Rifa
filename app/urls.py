@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from rifa.views import home
+from django.conf import settings
+from django.conf.urls.static import static
+import os
+from app.settings import BASE_DIR
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +29,9 @@ urlpatterns = [
     path('pagamento/', include('pagamento.urls')),
     path('usuario/', include('usuario.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static('/usuario/static/', document_root=os.path.join(BASE_DIR, 'usuario/static'))
+    urlpatterns += static('/rifa/static/', document_root=os.path.join(BASE_DIR, 'rifa/static'))
+    urlpatterns += static('/pagamento/static/', document_root=os.path.join(BASE_DIR, 'pagamento/static'))
