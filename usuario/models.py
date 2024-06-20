@@ -45,7 +45,7 @@ class Usuario(models.Model):
         nome = f"{'Foto'}-{t.strftime('%d-%m-%Y-%H%M%S%f')}{ext}"
         return os.path.join('usuario/static/usuario/img', nome)
 
-    cover = models.ImageField(upload_to=criaNome,blank=True, null=True)
+    cover = models.ImageField(upload_to=criaNome)
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE, related_name='Endereco_Usuario')
 
 class Telefone(models.Model):
@@ -53,7 +53,7 @@ class Telefone(models.Model):
     pais = models.CharField(max_length=2)
     ddd = models.CharField(max_length =2)
     telefone = models.CharField(max_length=9)
-    usuario_id = models.ForeignKey(Usuario,on_delete=models.CASCADE,related_name='Telefone_Usuario')
+    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,related_name='Telefone_Usuario')
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)

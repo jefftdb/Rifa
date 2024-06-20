@@ -6,11 +6,11 @@ class EnderecoAdmin(admin.ModelAdmin):
        search_fields = ( "id", "rua","numero","bairro","cidade","estado","cep","pais")
 
 class UsuarioAdmin(admin.ModelAdmin):
-       list_display =( "id", "first_name","last_name" ,"password" ,"email","cpf","endereco")
+       list_display =( "id", "first_name","last_name" ,"password" ,"email","cpf","cover","endereco")
        search_fields = ( "id", "first_name","last_name","email","cpf","telefone")
 
 class TelefoneAdmin(admin.ModelAdmin):
-       list_display =( "id", "ddd","telefone","usuario_id")
+       list_display =( "id","pais", "ddd","telefone","usuario_id")
        search_fields = ( "id","telefone")
 
 admin.site.register(Endereco,EnderecoAdmin)

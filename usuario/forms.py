@@ -116,12 +116,12 @@ class UsuarioEnderecoForm(forms.ModelForm):
     )
     
     # Adding fields from Telefone to the combined form
-    telefone_ddd = forms.CharField(
+    ddd = forms.CharField(
         max_length=2,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         label="DDD:"
     )
-    telefone_numero = forms.CharField(
+    telefone = forms.CharField(
         max_length=9,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         label="Telefone:"
@@ -142,7 +142,8 @@ class UsuarioEnderecoForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control'})
+            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
+            'cover': forms.ClearableFileInput(attrs={'class': 'form-control'})
         }
         labels = {
             'first_name': "Nome:",
