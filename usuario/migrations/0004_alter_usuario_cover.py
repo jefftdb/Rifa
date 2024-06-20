@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='usuario',
             name='cover',
-            field=models.ImageField(upload_to=usuario.models.Usuario.criaNome),
+            field=models.ImageField(upload_to=usuario.models.User.criaNome),
         ),
     ]

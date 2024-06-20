@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario,Telefone,Endereco
+from .models import User,Telefone,Endereco
 
 class EnderecoForm(forms.ModelForm):
     class Meta:
@@ -28,7 +28,7 @@ class EnderecoForm(forms.ModelForm):
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
-        model = Usuario
+        model = User
         fields = [                
             "first_name",
             "last_name",
@@ -41,7 +41,7 @@ class UsuarioForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control','type' : "email"}),
             'cpf': forms.TextInput(attrs={'class': 'form-control'})
         }
         labels = {
@@ -128,7 +128,7 @@ class UsuarioEnderecoForm(forms.ModelForm):
     )
     
     class Meta:
-        model = Usuario
+        model = User
         fields = [                
             "first_name",
             "last_name",
@@ -141,7 +141,7 @@ class UsuarioEnderecoForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control','type':'email'}),
             'cpf': forms.TextInput(attrs={'class': 'form-control'}),
             'cover': forms.ClearableFileInput(attrs={'class': 'form-control'})
         }

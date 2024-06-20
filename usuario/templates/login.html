@@ -1,0 +1,28 @@
+<div class="conteudo container">
+    <section class="form-control" style="margin-top: 10px;">
+      <form method="POST" enctype="multipart/form-data" >
+          <h1 class="header_title" style="text-align: center;">Cadastrar</h1>
+          <div class="row">              
+            {% csrf_token %}
+              <div class="row mb-3">                    
+                  <label class="col-sm-2 col-form-label" for="id_email" style="color: #000000; font-size: 20px; margin-bottom: 10px;">E-mail:</label>
+                                
+                  <div class="col-sm-10">
+                      <input type="email" name="email" class="form-control" maxlength="254" id="id_email">
+                  </div>                  
+              </div>
+              
+              <div class="row mb-3">                    
+                  <label class="col-sm-2 col-form-label" for="id_password" style="color: #000000; font-size: 20px; margin-bottom: 10px;">Senha:</label>
+                                
+                  <div class="col-sm-10">
+                      <input type="password" name="password" class="form-control" maxlength="128" required id="id_password">
+                  </div>                  
+              </div>   
+              
+          </div>
+          <div>
+              <button type="submit" class="btn btn-success col-12">Enviar</button>
+          </div>
+      </form>
+  </div>

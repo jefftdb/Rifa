@@ -2,7 +2,7 @@ from typing import Any
 from django.db import models
 from datetime import datetime
 import os
-
+from django.contrib.auth.models import User
 class Endereco(models.Model):
     id = models.AutoField(primary_key = True)    
     rua = models.CharField(max_length=255)
@@ -31,12 +31,7 @@ class Endereco(models.Model):
         return ', '.join(filter(None, partes))
     
     
-class Usuario(models.Model):
-    id = models.AutoField(primary_key=True)
-    first_name=models.CharField(max_length=50)
-    last_name=models.CharField(max_length=100)
-    password=models.CharField(max_length=255)
-    email=models.CharField(max_length=50)
+class User(User,models.Model):
     cpf = models.CharField(max_length=11)
     
     def criaNome(instance, filename):
@@ -53,7 +48,7 @@ class Telefone(models.Model):
     pais = models.CharField(max_length=2)
     ddd = models.CharField(max_length =2)
     telefone = models.CharField(max_length=9)
-    usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE,related_name='Telefone_Usuario')
+    usuario = models.ForeignKey(User,on_delete=models.CASCADE,related_name='Telefone_Usuario')
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
