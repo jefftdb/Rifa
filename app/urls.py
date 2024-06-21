@@ -27,7 +27,8 @@ urlpatterns = [
     path('', home, name = 'home'),
     path('rifa/', include('rifa.urls')),
     path('pagamento/', include('pagamento.urls')),
-    path('usuario/', include('usuario.urls'))
+    path('usuario/', include('usuario.urls')),
+    path('accounts/', include('allauth.urls')),  # Inclua esta linha para as URLs do django-allauth
 ]
 
 if settings.DEBUG:
