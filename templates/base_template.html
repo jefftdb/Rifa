@@ -8,11 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}{% endblock title%}</title>
-    <link href="{% static 'rifa/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="{% static 'rifa/css/bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'rifa/css/style.css' %}">
     <script src="{% static 'rifa/js/bootstrap.bundle.min.js' %}" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{% static 'rifa/js/js.js' %}" type="text/javascript"></script>
-    <script src="{% static 'pagamento/pagamento.js' %}"></script>  
+    <script src="{% static 'pagamento/pagamento.js' %}"></script>
 </head>
 {% endblock head %}
 <body>
@@ -44,7 +44,7 @@
                     </li>
                      
                     <li class="nav-item">
-                      <a style="text-decoration: none;" class="nav-link" href="#" title="Entrar">
+                      <a style="text-decoration: none;" class="nav-link" href="{%url 'usuario:login'%}" title="Entrar">
         
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
