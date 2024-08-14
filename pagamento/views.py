@@ -84,11 +84,11 @@ def pagamentos(request):
                 "value": 1000,
                 "currency": "BRL"
             },
-            "payment_method": {                             
+            "payment_method": {                                             
                 "type": "CREDIT_CARD",
                 "installments": 1,
                 "capture": True,
-                "soft_descriptor": "Loja do meu teste",
+                "soft_descriptor": "Site de rifa",
                 "card": {                    
                     "number": "4111111111111111",
                     "exp_month": "03",
@@ -129,37 +129,38 @@ def pagar_com_pix(request,rifa_id,num_id):
     }
 
     body = json.dumps({
-        "reference_id": "ex-00001",
-        "customer": {
-            "name": "Jose da Silva",
-            "email": "email@test.com",
-            "tax_id": "12345678909",
-            "phones": [
+    "reference_id": "ex-00001",
+    "customer": {
+        "name": "Jose da Silva",
+        "email": "email@test.com",
+        "tax_id": "12345678909",
+        "phones": [
             {
                 "country": "55",
                 "area": "11",
                 "number": "999999999",
                 "type": "MOBILE"
             }
-            ]
-        },
-        "items": [
-            {
+        ]
+    },
+    "items": [
+        {
             "name": f'numero:{numero} da Rifa: {rifa.title}',
             "quantity": 1,
-            "unit_amount": rifa.value
-            }
-        ],
-        "qr_codes": [
-            {
+            "unit_amount": 1
+        }
+    ],
+    "qr_codes": [
+        {
             "amount": {
-                "value": rifa.value
+                "value": int(rifa.value)  # Garantindo valor numérico
             },
             "expiration_date": data_expiracao.isoformat(),
-            }
-        ],
-        "shipping": {
-            "address": {
+        }
+    ],
+         
+    "shipping": {
+        "address": {
             "street": "Júlio Lopes",
             "number": "225",
             "complement": "casa 1",
@@ -167,17 +168,16 @@ def pagar_com_pix(request,rifa_id,num_id):
             "city": "Mendes",
             "region_code": "RJ",
             "country": "BRA",
-            "postal_code": "26700-000"
-            }
-        },
-        "notification_urls": [
-            "https://meusite.com/notificacoes"
-        ]
-    })
+            "postal_code": "26700000"  # Sem hífen, apenas 8 dígitos
+        }
+    },
+    "notification_urls": [
+        "https://meusite.com/notificacoes"
+    ],
+})
 
     response = requests.post(url, headers=headers, data=body)
     response_data = response.json()
-
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         return JsonResponse({
             'rifa': rifa.title,

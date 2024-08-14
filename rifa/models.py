@@ -20,7 +20,7 @@ class Rifa(models.Model):
         t = datetime.now()
         base, ext = os.path.splitext(filename)
         nome = f"{'Imagem'}-{t.strftime('%d-%m-%Y-%H%M%S%f')}{ext}"
-        return os.path.join('rifa/static/rifa/img', nome)
+        return os.path.join('static/rifa/img', nome)
 
     cover = models.ImageField(upload_to=criaNome)
     
