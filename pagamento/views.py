@@ -153,7 +153,7 @@ def pagar_com_pix(request,rifa_id,num_id):
     "qr_codes": [
         {
             "amount": {
-                "value": int(rifa.value)  # Garantindo valor numérico
+                "value": 1 
             },
             "expiration_date": data_expiracao.isoformat(),
         }
